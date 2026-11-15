@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixagrid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Pixagrid</h1>
+        <p>A simple pixel and sprite editor</p>
+    </header>
+    <main>
+        <section class="project">
+            <h2>New project</h2>
+            <form id="project-form">
+                <label for="project-name">Project name</label>
+                <input id="project-name" value="Untitled" maxlength="60">
+                <label for="size">Frame size</label>
+                <select id="size">
+                    <option value="16">16 × 16</option>
+                    <option value="32" selected>32 × 32</option>
+                    <option value="64">64 × 64</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div id="custom-size" hidden>
+                    <label for="width">Width</label>
+                    <input id="width" type="number" min="1" max="128" value="32">
+                    <label for="height">Height</label>
+                    <input id="height" type="number" min="1" max="128" value="32">
+                </div>
+                <button type="submit">Create project</button>
+            </form>
+            <p class="hint">Creating a project starts a new blank canvas.</p>
+        </section>
+        <section class="workspace">
+            <div class="workspace-top">
+                <div><h2 id="current-name">Untitled</h2><span id="current-size">32 × 32 pixels</span></div>
+                <span class="hint">Frame 1</span>
+            </div>
+            <div class="editor">
+                <div class="tools">
+                    <h3>Tools</h3>
+                </div>
+                <div class="canvas-wrap">
+                    <canvas id="canvas" width="32" height="32" aria-label="Blank sprite canvas"></canvas>
+                </div>
+            </div>
+            <div class="history">
+                <button id="undo" type="button">Undo</button>
+                <button id="redo" type="button">Redo</button>
+                <span id="step"></span>
+            </div>
+            <p id="status" role="status">Ready. Create a project or start with the blank canvas.</p>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
